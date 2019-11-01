@@ -141,14 +141,39 @@
 # print('th' in py_str) # th在字符串里么?
 # print('to'in py_str) # to在字符串里么?
 # print('to'not in py_str) # to结果取反
-#列表,与字符串类似,都是序列对象
-alist = [1,2,3,'tom','jerry']
-print(len(alist))
-print(alist[0])
-print(alist[3:])
-print(3 in alist)
-print('o' in alist)
-print(alist + [10,20])
-print(alist*2)
-print(alist.append('bob')) #向列表尾部追加一个字符串
-print(alist)
+# #列表,与字符串类似,都是序列对象
+# alist = [1, 2, 3, 'tom', 'jerry']
+# print(len(alist))
+# print(alist[0])
+# print(alist[3:])
+# print(3 in alist)
+# print('o' in alist)
+# print(alist + [10,20])
+# print(alist * 2)
+# print(alist.append('bob')) #向列表尾部追加一个字符串
+# print(alist)
+# #元组:可以认为他是不可变的列表
+# atup = (1,2,3,'bob','tom')
+# print(len(atup))
+# print(atup[0])
+# print(atup[3:])
+# alist[0] = 10 #列表可变,可以把元素重新赋值
+# print(alist)
+# atup[0] = 10 #元组不可变,所以不能把它的元素重新赋值(会报错)
+# #字典: 采用的是key:value的形式
+# adict = {'name': 'tom','age': 20}
+# print(len(adict))
+# print(adict[0]) #字典是无序的,所以没有下标(会报错)
+# print('tom' in adict) #tom是字典的key嚒?
+# print(adict['name']) #通过key来找到value
+# # 数据类型的特点
+# alist = [1,2,3,'zsx','gzl']
+# blist = alist
+# print(blist)
+# blist.append('ak')
+# print(blist)
+# print(alist) #如此赋值表现alist,blist指向同一个表
+# blist = alist[:]
+# print(blist)
+# blist.append('ak')
+# print(blist,"\n",alist) #通过从新创建个容易来装alist表值解决指向同一个表的问题
