@@ -300,15 +300,16 @@ def randpass(site=8):
         ch = choice(all_chs)
         result += ch
     return result
+
 if len(sys.argv) != 2:
-    print(randpass())
+    print('默认随机8位:',randpass())
     exit(1)
 else:
-    print(randpass(int(sys.argv[1])))
+    print('生成%s位密码:'% sys.argv[1],randpass(int(sys.argv[1])))
 
 
 
-# #午间练习:市场两小时
+# #午间练习:时长两小时
 # range(10) #[0,1,2,3,4,5,6,7,8,9]
 # print(list(range(10)))
 # range(6,11) #[6,7,8,9,10]
