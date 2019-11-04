@@ -288,12 +288,13 @@ if __name__ == '__main__': //在自定义star模块中使用_name_特殊变量�
 #
 # print(result)
 #函数随机生成密码并且可自定义
-import sys
+import sys    #导入后以第一次为准,如果修改模块参数需要退出python3然后在进去如重新导入一次即可.
+from random import choice
+from string import ascii_letters,digits
 
 def randpass(site=8):
-    from random import choice
 
-    all_chs = '0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
+    all_chs = ascii_letters + digits
     result = ''
 
     for i in range(site):
@@ -301,11 +302,12 @@ def randpass(site=8):
         result += ch
     return result
 
-if len(sys.argv) != 2:
-    print('默认随机8位:',randpass())
-    exit(1)
-else:
-    print('生成%s位密码:'% sys.argv[1],randpass(int(sys.argv[1])))
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print('默认随机8位:',randpass())
+        exit(1)
+    else:
+        print('生成%s位密码:'% sys.argv[1],randpass(int(sys.argv[1])))
 
 
 
