@@ -317,11 +317,12 @@ import subprocess
 # print('%5.2f' % (5 / 3))  # 输出总宽度为5,小数位2位,不够宽度补空格
 # print('%e' % 10000)  # 科学计数法
 # 字符串格式化还可以使用format方法
-
-
-
-
-
+# a ='{} is {} years old'.format('bob',20)
+# print(a)
+# b = '{} is {} years old'.format(20, 'bob')
+# print(b)
+# c = '{1} is {0} years old'.format(20, 'bob')
+# print(c)
 # 案例2:创建用户
 # !/bin/env python3
 # -*- coding:utf8 -*-
@@ -382,15 +383,48 @@ import subprocess
 #     adduser(uname,passwd,fname)
 #     #python adduser.py zs /tmp/user.txt 将密码写入user.txt
 #*****************************************************************
-#字符串方法
-hi = '  hello world   \t\n'
-
-#strip去除空白字符(\n\t都属于空白字符,空格不算)
-print(hi.strip()) #去除两边
-print(hi.lstrip()) #去除左边
-print(hi.rstrip()) #去除右边
-
-
+# #字符串方法
+# #没有字符串方法,判断一个字符串是不是全为数字
+# a = input('data: ')
+# for i in a:
+#     if i not in '0123456789':
+#         print(False)
+#         break
+#     else:
+#         print(True)
+# #**************************************
+# # 用字符串方法判断字符串中所有的字符是否为数字
+# a = '123a456'
+# b = '123'
+# print(a.isdigit())
+# print(b.isdigit())
+#
+#
+# #strip去除空白字符(\n\t都属于空白字符,空格不算)
+# hi = '  hello world   \t\n'
+#
+# print(hi.strip()) #去除两边
+# print(hi.lstrip()) #去除左边
+# print(hi.rstrip()) #去除右边
+#
+# hello = 'hello world hao 123'
+# print('hello world hao 123'.split()) #切割字符串
+# print('hello.world.hao.123'.split('.')) #切割以.为分割的字符串
+#
+# c = ['hello', 'world', 'hao', '123']
+# print('-'.join(c)) #用-拼接字符串
+# print('hello world'.replace('l','a')) #将1替换为a
+# print(hi.center(20)) #居中
+# print('hello'.center(20,'#'))
+# print('hello'.ljust(20,'*')) #左对齐
+# print('hello'.rjust(20,'*'))#右对齐
+# print('hello'.upper()) #转大写
+# print('hello'.lower()) #转小写
+# print('hao123'.islower()) #字母都是小写的么?
+# print('hao123'.isdigit()) #所有的字符都是数字么?
+# '''
+# 完整的字符串方法参见:https://docs.python.org/zh-cn/3.6/library/stdtypes.html#text-sequence-type-str
+# '''
 #*****************************************************************
 # #晚间练习
 # alist = [10,'john']
@@ -412,7 +446,7 @@ print(hi.rstrip()) #去除右边
 # for i in reversed(atuple):
 #     print(i,end='')
 
-from random import randint
+# from random import randint
 
 # alist = list() #空
 # list('hello')
@@ -422,3 +456,7 @@ from random import randint
 # str(['h','e','l','l','o'])
 # atuple = tuple()
 # tuple('hello')
+
+# num_list = [randint(1,100)for i in range(10)]
+# max(num_list)
+# min(num_list)
