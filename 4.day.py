@@ -1,13 +1,13 @@
 #!/bin/env python3
-#-*- coding:utf8 -*-
-#学python3的第四天
-#查看帮助
+# -*- coding:utf8 -*-
+# 学python3的第四天
+# 查看帮助
 '''
 python的帮助:https://docs.python.org/zh-cn/3/
 查看标准库:里面有　内置函数(就是内建)
 '''
-#shutil:实现文件的复制　剪切　删除等操作
-#用底层模块(低级模块)
+# shutil:实现文件的复制　剪切　删除等操作
+# 用底层模块(低级模块)
 # import shutil
 # f1 = open('/etc/shadow','rb')
 # f2 = open('/tmp/sd','wb')
@@ -27,6 +27,7 @@ python的帮助:https://docs.python.org/zh-cn/3/
 # help(shutil.chown())
 # #subbprocess:可以调用任何系统命令
 import subprocess
+
 #
 # #查看bob家目录
 # subprocess.run('ls -a ~bob',shell=True)
@@ -83,10 +84,10 @@ import subprocess
 # a = b
 # b = t
 # print(a,b)
-#标识符:各种各样的名称,如:变量　函数　模块　类,统称为标识符
-#合法标识符需要满足的条件:区分大小写....
-#关键字:为了实现python语法 它保留了一些名字　叫关键字
-#关键字不能被覆盖
+# 标识符:各种各样的名称,如:变量　函数　模块　类,统称为标识符
+# 合法标识符需要满足的条件:区分大小写....
+# 关键字:为了实现python语法 它保留了一些名字　叫关键字
+# 关键字不能被覆盖
 # import keyword
 # print(keyword.kwlist) #查看有哪些关键字
 # #两种辨别是不是关键字方法
@@ -96,7 +97,7 @@ import subprocess
 # #2)
 # test2 = keyword.iskeyword('pass')
 # print(test2)
-#内建(builtin_function_or_method):不是关键字,but也布建议覆盖
+# 内建(builtin_function_or_method):不是关键字,but也布建议覆盖
 # print(type(len))
 # len = 10 #将len定义为变量　赋值10
 # len('123') #此时len不再是函数会报错
@@ -220,4 +221,204 @@ import subprocess
 # sorted('hello')
 # for i in reversed(atuple):
 #     print(j,end='')
+# 案例1:创建文件
+# #import sys
+# import subprocess
+#
+# filename = input('请输入文件名: ')
+# result = subprocess.run('touch %s'% filename,shell=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+# result.stdout
+# if result.returncode == 0:
+#     print('\033[1;33mCreated file %s is successful !\033[0m'% filename)
+#     exit(1)
+# #编写功能函数---------------
+# #!/bin/env python3
+# '''记事本
+#
+# 用户写入文件内容
+# '''
+# import  os
+#
+# def get_fname():
+#     '返回一个文件名字符串'
+#     while True:
+#         filename = input('Please input filename: ')
+#         if not os.path.exists(filename):
+#             break
+#         print('Filename is not use,please re-enter! ')
+#     return filename
+#
+# def get_content():
+#     '返回文件内容的字符串列表'
+#     content = []
+#
+#     print('请输入内容,段读输入end表示结束.')
+#     while True:
+#         line = input('(end to quit)> ')
+#         if line == 'end':
+#             break
+#         content.append(line)
+#     return content
+#
+# def wfile(fname,content):
+#     '将content中的内容写入到fname'
+#     with open(fname,'w') as file:
+#         file.writelines(content)
+#
+# if __name__ == '__main__':
+#     fname = get_fname()
+#     content = get_content()
+#     content = ['%s\n' % line for line in content] #解决content.append没有\n问题
+#     wfile(fname,content)
+# 字符串详解
+# 序列对象
+# #list转成列表(能被一个一个取出来的)
+# print(list('abc'))
+# print(list(range(10)))
+# #tuple将对象转成元组
+# print(tuple('abc'))
+# print(tuple(range(10)))
+# #str将对象转换成字符串
+# print(str(10))
+# #内建函数
+# #reversed函数用于反转对象
+# from random import  randint
+# nums = [randint(1,100)for i in range(10)]
+# print(reversed(nums)) #取出来默认二进制形式
+# print(list(reversed(nums))) #转换成二进制模式
+# #sorted函数用于排序
+# print(sorted(nums)) #不会改变形式只改变顺序(从小到大)
+# #enumerate同时得到下标和值
+# print(list(enumerate(nums)))
+# #循环输出
+# for data in enumerate(nums):
+#     print(data)
+# #多元赋值将下标和值分开
+# for x,y in enumerate(nums):
+#     print(x,y)
+# #字符串
+# s = '中'
+# print(s)
+# print(s.encode())
+# b = s.encode() #将字符(str)转成bytes类型
+# c = b.decode() #将bytes类型转换成str类型
+# print(c)
+# 字符串格式化操作符
+# 基础格式
+# "" % () #如果只有一项需要替换()可以省略
+# # %d表示需要用整数进行替换(无法替换字符串)
+# print('%s is %d years old' % ('tom', 20))  # 数字用%d/%s 都行　字符串%s
+# print('%8s%5s' % ('name', 'age'))  # 默认右对齐
+# print('%-8s%-5s' % ('name', 'age'))  # 数字为负则表示左对齐
+# print('%#o' % 10)  # 转8进制
+# print('%#x' % 10)  # 转16进制
+# print('%f' % (5 / 3))
+# print('%.2f' % (5 / 3))  # 保留2位小数
+# print('%5.2f' % (5 / 3))  # 输出总宽度为5,小数位2位,不够宽度补空格
+# print('%e' % 10000)  # 科学计数法
+# 字符串格式化还可以使用format方法
 
+
+
+
+
+# 案例2:创建用户
+# !/bin/env python3
+# -*- coding:utf8 -*-
+'''创建用户
+
+创建用户并且生成随机密码
+'''
+# import  sys
+# import subprocess
+#
+#
+# def get_username():
+#
+#
+# def get_password():
+#
+#
+# def get_fname():
+#
+#
+# def get_useradd(uname, ):
+#
+#
+# if __name__ == '__main__':
+#     uname = get_useradd()
+
+# #张老师版本
+# import sys
+# import subprocess
+# import randpass2
+#
+# def adduser(uname,passwd,fname):
+#     #判断用户是是否存在
+#     result = subprocess.run(
+#         'if %s &>/dev/null' % uname,shell=True
+#     )
+#     if result.returncode == 0:
+#         print('用户已存在')
+#         #函数遇到return就结束,不会在向下执行
+#         return
+#     #创建用户　设置密码
+#     subprocess.run('useradd %s' % uname,shell=True)
+#     subprocess.run(
+#         'echo %s | passwd --stdin %s' % (passwd,uname),shell=True
+#     )
+#
+#     #用户名和密码写到文件中
+#     info = '''用户名:%s
+# 密码:%s
+# ''' % (uname,passwd)
+#     with open(fname,'a') as fobj:
+#         fobj.write(info)
+#
+# if __name__ == '__main__':
+#     uname = sys.argv[1]
+#     fname = sys.argv[2]
+#     passwd = randpass2.randpass()
+#     adduser(uname,passwd,fname)
+#     #python adduser.py zs /tmp/user.txt 将密码写入user.txt
+#*****************************************************************
+#字符串方法
+hi = '  hello world   \t\n'
+
+#strip去除空白字符(\n\t都属于空白字符,空格不算)
+print(hi.strip()) #去除两边
+print(hi.lstrip()) #去除左边
+print(hi.rstrip()) #去除右边
+
+
+#*****************************************************************
+# #晚间练习
+# alist = [10,'john']
+# #list(enumerate(alist)) #[(0,10),(1,'john')]
+# #a,b = 0,10 #a->0 b->10
+#
+# for ind in  range(len(alist)):
+#     print('%s:%s'% (ind,alist))
+#
+# for item in enumerate(alist):
+#     print('%s:%s'% (item[0],item[1]))
+#
+# for ind,val in enumerate(alist):
+#     print('%s:%s'% (ind,val))
+#
+# atuple = (96, 97, 40, 75, 58, 34, 69 ,29, 66, 90)
+# sorted(atuple)
+# sorted('hello')
+# for i in reversed(atuple):
+#     print(i,end='')
+
+from random import randint
+
+# alist = list() #空
+# list('hello')
+# list(10,30,20)
+# astr = str()
+# str(10)
+# str(['h','e','l','l','o'])
+# atuple = tuple()
+# tuple('hello')
