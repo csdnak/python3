@@ -1,0 +1,25 @@
+#!/bin/env python3
+#-*- coding:utf8 -*-
+# print('hello world')
+# print('hao',123)
+# print('hao',123,sep='***') #分隔符定义为***
+# print('hao',123)
+# print('hao' + '123')
+# user = input('username: ')
+# print(user)
+# divmod(5,3) #5除以3 返回商和余数(1, 2)
+# a,b  = divmod(5,3) #将商和余数赋值给a和b
+# 10 > 5 > 1 # python支持连续比较
+# 20 > 10 < 30 #相当于20 > 10 and 10 < 30
+# (not 10 > 50) or 2 < 5 #设计到可读性差的代码 应该加()
+print( type(1.3))
+True + 1 = 2
+False * 5 = 0
+#python默认使用10进制数表示数字
+hex(20) #10进制转16
+oct(10) #转8进制
+bin(10) #十进制转2进制
+
+py_str[2:6] # 切片,不会出现下标越界的错误
+
+
