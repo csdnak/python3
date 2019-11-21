@@ -1,0 +1,402 @@
+<!-- Python-myweb01
+ 学web的第一天
+ -->
+<!--
+## HTML
+
+- 超文本标记语言
+- 它使用标记形成文档的结构
+- 它不是可见即可用的
+
+## 标记
+
+- 也叫标签、元素
+- 分为双标记，如\<h1\>一号标题\</h1\>；和单标记，如\<hr\>
+- 标记分为
+  - 块级元素：至少要占一行，如h1-h6，p、div、ul、ol
+  - 行内元素：不产生换行，如span、i、b等
+
+- html是根标记，它一般包括两个直接子元素head和body
+  - head可以设置一些属性以及title
+  - 出现在浏览器窗口中的内容写到body中
+
+- 标记还可以嵌套
+- 注释采用：\<!--    --\>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- subject(标题) -->
+    <title>my web</title>
+</head>
+<!-- 利用属性实现与css同等效果(不推荐:掺杂在一起不方便,还是建议用css样式表实现) -->
+<body bgcolor="aqua" text="blue">
+ <!-- 一号标题(属于双标记) -->
+<h1>hello world</h1>
+<!-- 分割线 (属于单标记)-->
+<hr>
+<!-- 二号标题(属于双标记) --> <!-- 三号标题(属于双标记) -->
+<h2>bob: how are you?</h2><h3>Alice: I am fun,thank's,and you?</h3>
+<!-- 二号标题(属于双标记) --> <!-- 三号标题(属于双标记) -->
+<h4>bob: me too.</h4><h5>Alice: Oh ye!baby.</h5>
+         <!-- 居中 -->
+ <h6 align="center">web 开发</h6>
+<!-- 行内元素(不会换行,可加br换行) -->
+<p>
+    <!-- 常规字体 -->
+    <i>细细的</i><br>
+    <!-- 加粗字体 -->
+    <b>Alice: what are you doing now?This is myself web:</b>
+    <!-- 下划线字体 -->
+    <u>www.csdnak.com</u><br>
+    <!-- 删除线 -->
+    <s>delete</s><br>
+    <!-- 上标 -->
+    2<sup>3</sup>=8<br>
+    <!-- 下标 -->
+    log<sub>2</sub>n
+</p>
+<p>
+    <i>特殊字符:</i>
+    <!-- 尖角号 -->        <!-- 空格符 -->
+    &lt;abcd&gt;   &nbsp;  空&nbsp;&nbsp;格
+    <!-- 版权\标识符© -->        <!-- ω符 -->      <!-- β符 -->
+           &copy;      &nbsp;    &omega;   &nbsp;   &beta;
+</p>
+ <!-- 字体之间无空隙 -->
+<div>csdnak最帅气<br>csdnak最帅气</div>
+<div>csdnak最帅气<br>csdnak最帅气</div>
+ <hr>
+ <!-- 多出一行回车 -->
+<p>csdnak最帅气<br>csdnak最帅气</p>
+<p>csdnak最帅气<br>csdnak最帅气</p>
+<!--
+## URL：统一资源定位符
+
+w3school: https://www.w3school.com.cn/
+-注意:
+    本地图片坐在位置不能为上级目录(必须是网站文件所在同等目录或子目录,否则找不到)
+-->
+ <!-- 返回id为second的地方 -->
+ <a href="#second">返回id为second</a><br>
+ <!-- 图片跳转页面 -->
+ <a href="http://www.csdnak.com">
+     <img src="static/imgs/html_css.jpeg">
+ </a><br>
+ <!-- 文字跳转页面 -->               <!-- 新打开一个窗口 -->
+ <a href="http://www.csdnak.com" target="_blank">阿坤个人网站</a><br>
+ <hr>
+ <!-- 显示网络图片 -->
+<img src="1.day.py" alt="图片不能显示时显示的文字"><br>
+ <!-- 显示本地图片 -->
+<img src="static/imgs/html_css.jpeg"><br>
+ <!-- 指定宽度 -->
+ <img width="300px" src="static/imgs/html_css.jpeg"><br>
+ <!-- 指定高度 -->
+<img height="300px" src="static/imgs/html_css.jpeg"><br>
+ <!-- 指定宽度高度,如果不指定默认等高等宽 -->
+<img height="350px" width="200px" src="static/imgs/html_css.jpeg"><br>
+ <!-- id标签:承接上方的返回 -->
+<img id="second" src="https://i03picsos.sogoucdn.com/bed0673336c4d1d1"><br>
+ <a href="#">返回顶部</a><br>
+<h1>myweb</h1>
+ <!-- 蓝色分割线 -->
+ <hr color="blue">
+<h2>This is csdnak.</h2>
+<p>
+    <i>姓名:阿坤</i>
+    <b>年龄:不详</b>
+    <u>对象:一切皆对象</u>
+</p>
+ <!-- 字体无空隙+元素的行内样式 -->
+<div>最帅气的人是<span style="color: #2aabd2;">csdnak</span></div>
+ <hr color="red">
+ <p>表格:</p>
+<!-- 表格生成:table>tr*5>td*3(然后按tab键) -->
+ <table border="1px" width="400px"> <!-- 打印格子,宽度400 -->
+     <!-- 表头 -->
+    <thead>
+        <tr>
+            <th>阶段</th>
+            <th>内容</th>
+            <th>讲师</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>一</td>
+        <td>Linux</td>
+        <td>C</td>
+    </tr>
+    <tr>
+        <td>二</td>
+        <td>Network</td>
+        <td>S</td>
+    </tr>
+    <tr>
+        <td>三</td>
+        <td>Database</td>
+        <td>D</td>
+    </tr>
+    <tr>
+        <td>四</td>
+        <td>Operations</td>
+        <td>N</td>
+    </tr>
+    <tr>
+        <td rowspan="2">1</td>
+        <td colspan="2">1</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>ak</td>
+    </tr>
+ </table>
+ <hr color="yellow">
+ <p>头标:</p>
+ <!-- ul*3>li*5(tab键) -->
+ <ul type="square">   <!-- 实心方块标 -->
+     <li>Python</li>
+     <li>html</li>
+     <li>shell</li>
+     <li>css</li>
+     <li>javascript</li>
+ </ul>
+ <ul type="circle">  <!-- 空心圆标 -->
+     <li>Python</li>
+     <li>html</li>
+     <li>shell</li>
+     <li>css</li>
+     <li>javascript</li>
+ </ul>
+ <ul>                 <!-- 默认实心圆标 -->
+     <li>Python</li>
+     <li>html</li>
+     <li>shell</li>
+     <li>css</li>
+     <li>javascript</li>
+ </ul>
+ <hr color="brow">
+<!-- ol*3>li*5(按tab键) -->
+ <ol type="A">     <!-- 大写字母头排序 -->
+     <li>Python</li>
+     <li>html</li>
+     <li>shell</li>
+     <li>css</li>
+     <li>javascript</li>
+ </ol>
+ <ol type="a" start="3">  <!-- 小写字母头排序,从c开始 -->
+     <li>Python</li>
+     <li>html</li>
+     <li>shell</li>
+     <li>css</li>
+     <li>javascript</li>
+ </ol>
+ <ol start="6">   <!-- 数字头排序,从6开始 -->
+     <li>Python</li>
+     <li>html</li>
+     <li>shell</li>
+     <li>css</li>
+     <li>javascript</li>
+ </ol>
+ <ol type="i" start="6">   <!-- 罗马数字头排序,从vi开始 -->
+     <li>Python</li>
+     <li>html</li>
+     <li>shell</li>
+     <li>css</li>
+     <li>javascript</li>
+ </ol>
+ <hr color="green">
+<p>二级标:</p>
+ <!-- ul>li(ul(li(a)*3))*2(按tab键) -->
+ <ul>
+     <li>
+         网页
+         <ul>
+             <li><a href="http://www.baidu.com">百度</a></li>
+             <li><a href="http://www.163.com">网易</a></li>
+             <li><a href="http://www.github.com">GitHub</a></li>
+         </ul>
+     </li>
+     <li>
+         图片
+         <ul>
+             <li><a href="https://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&ie=gb18030&word=%C7%E5%B4%BF%D1%A7%C3%C3&fr=ala&ala=1&alatpl=adress&pos=0&hs=2&xthttps=111111">清纯学妹</a></li>
+             <li><a href="https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1574235212538_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&hs=2&sid=&word=%E7%A8%8B%E5%BA%8F%E7%8C%BF">程序猿</a></li>
+             <li><a href="https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1574235230346_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&hs=2&sid=&word=%E7%A8%8B%E5%BA%8F%E5%AA%9B">程序媛</a></li>
+         </ul>
+     </li>
+ </ul>
+ <hr color="pink">
+                                <!-- form表单(重点1)  -->
+<p>搜索:</p>
+<!-- 结合网站实践操作改action和name两个参数即可 -->
+ <!-- 地址栏?前面的是action参数,name参数就是你所输入关键字所赋值的对象 -->
+<!-- form[action target]>input[type name]>input[type value](按tab键) -->
+<form action="https://www.sogou.com/web" target="_blank">
+    <input type="text" name="query">
+    <input type="submit" value="搜狗搜索">
+</form>
+<form action="https://www.baidu.com/s" target="_blank">
+    <input type="text" name="wd">
+    <input type="submit" value="百度搜索">
+</form>
+<form action="http://cn.bing.com/search" target="_blank">
+    <input type="text" name="q">
+    <input type="submit" value="必应搜索">
+</form>
+ <hr color="violet">
+<p>登录:</p>
+ <form action="http://www.csdnak.com">
+    uname: <input type="text" placeholder="username"><br>
+    upass: &nbsp;&nbsp;<input type="password" placeholder="password"><br>
+    <input type="submit" value="登陆">
+    <input type="reset" value="重置">
+ </form>
+ <p>快递查询:</p>
+<form action="http://www.kuaidi100.com/query" target="_blank">
+    快递公司: <input type="text" name="type"><br>
+    单号:<input type="text" name="postid"><br>
+    <input type="submit" value="查询">
+</form>
+ <p>复选框:</p>
+<!-- 可多选 -->
+ <form action="">
+     你所学过的课程有:<br>
+    <label>
+        <input type="checkbox" name="lesson" value="sh"> shell
+    </label>
+    <label>
+        <input type="checkbox" name="lesson" value="py"> python
+    </label>
+    <label>
+        <input type="checkbox" name="lesson" value="linux"> linux
+    </label>
+    <label>
+        <input type="checkbox" name="lesson" value="db"> database
+    </label>
+    <br>
+     <input type="submit">
+ </form>
+<p>快递查询升级版:</p>
+<form action="http://www.kuaidi100.com/query" target="_blank">
+    单号: <input type="text" name="postid"><br>
+       <!-- name参数可以绑定单个选项,否则就会变成多选! -->     <!-- label标签 -->
+    <input name="type" type="radio" value="youzhengguonei"><label>邮政</label>
+    <input name="type" type="radio" value="yuantong"><label>圆通</label>
+    <input name="type" type="radio" value="shentong"><label>申通</label>
+    <br>
+    <input type="submit" value="查询">
+</form>
+ <p>快递查询优化:</p>
+ <!-- 选项直接点字就可以选到:共有两种方法1和2 -->
+<form action="http://www.kuaidi100.com/query" target="_blank">
+    单号: <input type="text" name="postid"><br>
+    <!-- 1.直接放到标签里面 -->
+    <label>
+        <input name="type" type="radio" value="youzhengguonei">
+        邮政
+    </label>
+    <!-- 2.绑定个id即可用for调用 -->
+    <input id="yuantong" name="type" type="radio" value="yuantong">
+    <label for="yuantong">圆通</label>
+    <input id="shentong" name="type" type="radio" value="shentong">
+    <label for="shentong">申通</label>
+    <br>
+    <input type="submit" value="查询">
+</form>
+ <hr color="white">
+ <p>可伸缩文本框:</p>
+ <!-- 可伸缩的文本框:做成了搜索引擎 -->
+<form action="https://www.baidu.com/s">
+    <!-- 字体颜色font -->
+    <font color="#c71585">百度搜索:</font>
+    <br>
+    <!-- cols列 row行 -->
+    <textarea id="wb" name="wd" typeof="text" cols="30" rows="10"></textarea>
+    <br>
+    <input  type="submit" value="提 交">
+</form>
+ <hr color="blue">
+                                 <!-- css样式表(重点2) -->
+ <!--
+- 也叫级联式表，简称样式表
+- 样式表的类型
+  - 内联样式，与标签属性一样，直接应用在标签上。不推荐
+  - 内部样式，将样式统一写在head标签中
+  - 外部样式，将样式集中放在一个样式表文件中
+ -->
+<!-- css样式表(层叠样式表:可混合用) -->
+ <!-- 优先级高于属性所以会覆盖body所设置的 -->
+
+                    <!-- 1.内部样式表 -->
+ <style>
+     body {
+         background-color: silver;
+         color: darkblue;
+     }
+ </style>
+                  <!-- 2.推荐使用外部样式表形式 -->
+<!--写一个mycss.css文件
+body {
+    background-color: silver;
+    color: darkblue;
+}
+
+h1 {
+    text-align: center;
+}
+-->
+ <!--在新写一个myhtml.html网页测试结果
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my html 5</title>
+    <link rel="stylesheet" href="mycss.css">
+</head>
+<body>
+
+</body>
+</html>
+ -->
+                         <!-- 3.内联样式 -->
+ <!--新建一个myhtml2.html
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my html 6</title>
+    <link rel="stylesheet" href="mycss.css">
+</head>
+<body>
+<h1 style="background-color: orangered">CSDN阿坤</h1>
+<p>CSDN阿坤</p>
+</body>
+</html>
+ -->
+</body>
+</html>
+
+<!--样式表简单的体现:
+# 下载腾讯首页
+>>> import wget
+>>> wget.download('http://www.qq.com', '/tmp/qq.html')
+# firefox打开文件时，发现乱码
+(csdnak) [root@room8pc16 day01]# firefox /tmp/qq.html
+# 查看文件类型，发现它其实是gzip压缩文件
+(csdnak) [root@room8pc16 day01]# file /tmp/qq.html
+/tmp/qq.html: gzip compressed data, from Unix
+# 解压
+(csdnak) [root@room8pc16 day01]# mv /tmp/qq.html /tmp/qq.html.gz
+(csdnak) [root@room8pc16 day01]# gzip -d /tmp/qq.html.gz
+(csdnak) [root@room8pc16 day01]# ls /tmp/qq.html
+/tmp/qq.html
+(csdnak) [root@room8pc16 day01]# file /tmp/qq.html
+(csdnak) [root@room8pc16 day01]# firefox /tmp/qq.html
+
+# 修改样式表说明
+[root@room8pc16 myansible]# vim /tmp/qq.html # 样式表路径加上http:
+<link rel="stylesheet" href="http://mat1.xxxxxxxxxxxxxxx
+-->
