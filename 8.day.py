@@ -752,7 +752,7 @@ import os
 # )
 #记账程序
 import time
-import pickle
+
 
 adict = {} #小字典
 records = []  #总表
@@ -761,7 +761,7 @@ int_data = time.strftime('%Y-%m-%d') #date
 def save_it(save=0): #存入余额
     try:
         if save != 0:
-            save = input('\033[33;1msave: \033[0m').strip()[0]
+            save = input('\033[33;1mre-save: \033[0m').strip()[0]
     except ValueError as prompt:
         print('\033[36;1mInvalid input,Try again: %s\033[0m' % prompt)
     except (KeyboardInterrupt,EOFError):
@@ -774,7 +774,7 @@ def save_it(save=0): #存入余额
 def cost_it(cost=0): #支出余额
     try:
         if cost != 0:
-            cost = input('\033[33;1mcost: \033[0m').strip()[0]
+            cost = input('\033[33;1mre-cost: \033[0m').strip()[0]
     except ValueError as prompt:
         print('\033[36;1mInvalid input,Try again: %s\033[0m' % prompt)
     except (KeyboardInterrupt,EOFError):
@@ -785,7 +785,7 @@ def cost_it(cost=0): #支出余额
 
 
 def comment_it(): #零钱明细
-    comment = input('\033[33;1mcomment: \033[0m').strip()[0]
+    comment = input('\033[33;1re-mcomment: \033[0m').strip()[0]
     return comment
 
 def view_it(): #账单查询
@@ -820,7 +820,7 @@ def show_menu():
             )
             write_list()
         elif choice == '1':
-            cost = input('\033[33;1msave: \033[0m').strip()[0]
+            cost = input('\033[33;1mcost: \033[0m').strip()[0]
             cost_it(int(cost))
             save_it()
             comment_it()
@@ -838,13 +838,15 @@ def show_menu():
         elif choice == '2':
             view_it()
         else:
+            print('\nBye-bye')
             break
 
     cmds[choice]()
 
 
 if __name__ == '__main__':
-    counter = records[-1][-2] - cost_it() if records[-1][-2] > cost_it() else records[-1][-2] + cost_it()
+    if not records == []:
+        counter = records[-1][-2] + save_it() if not save_it() > 0 else records[-1][-2] - cost_it()
     show_menu()
 
 

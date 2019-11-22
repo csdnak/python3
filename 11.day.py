@@ -324,6 +324,7 @@ MariaDB [csdnak]>CREATE DATABASE csdn1998 DEFAULT CHARSET utf8;
 #     Base.metadata.create_all(engine)
 
 #*****************crud:增删改查***************
+#*********create/retrieve/update/delete*********
 # from dbconn import Session, Departments, Employees
 #
 # # 建立到数据库的会话连接

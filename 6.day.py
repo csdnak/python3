@@ -745,29 +745,30 @@ alist = [1,2,3,'bob','alice']
 # alist.extend('new') #['n', 'e', 'w']
 # alist.extend(['hello','world','hehe'])
 # print(alist)
-#
-# import sys
-# import keyword
-# import string
-#
-# first_chs = string.ascii_letters + '_'
-# all_chs = first_chs + string.digits
-#
-# def check_id(idt):
-#     if keyword.iskeyword(idt):
-#         return "%s is keyword" % idt
-#
-#     if idt[0] not in first_chs:
-#         return "1st invalid"
-#
-#     for ind,ch in enumerate(idt[1:]):
-#         if ch not in all_chs:
-#             return "char in postion #%s invalid" % (ind + 2)
-#
-#     return '%s is valid' % idt
-#
-# if __name__ == '__main__':
-#     print(check_id(sys.argv[1]))
+
+#检查变量名称是否符合标准
+import sys
+import keyword
+import string
+
+first_chs = string.ascii_letters + '_'
+all_chs = first_chs + string.digits
+
+def check_id(idt):
+    if keyword.iskeyword(idt):
+        return "%s is keyword" % idt
+
+    if idt[0] not in first_chs:
+        return "1st invalid"
+
+    for ind,ch in enumerate(idt[1:]):
+        if ch not in all_chs:
+            return "char in postion #%s invalid" % (ind + 2)
+
+    return '%s is valid' % idt
+
+if __name__ == '__main__':
+    print(check_id(sys.argv[1]))
 
 #
 # import subprocess
@@ -853,46 +854,46 @@ alist = [1,2,3,'bob','alice']
 # print(bdict)
 # bdict.pop('age')
 # bdict.clear()
-stack = []
-
-def push_it():
-    data = input('数据: ').strip()
-    if data:
-        stack.append(data)
-    else:
-        print('输入内容为空.')
-
-def pop_it():
-    if stack:
-        print('从栈中,弹出:%s'% stack.pop())
-    else:
-        print('空栈')
-
-def view_it():
-    print(stack)
-
-def show_menu():
-    cmds = {'0': push_it,'1': pop_it,'2': view_it}
-    prompt ="""(0)压栈
-(1)出栈
-(2)查询
-(3)退出
-请选择(0/1/2/3): """
-
-    while True:
-        choice = input(prompt).strip()
-        if choice not in ['0','1','2','3']:
-            print('input is invalid,Try again,')
-            continue
-
-        if choice =='3':
-            print('\nBye-bye')
-            break
-
-        cmds[choice]()
-
-if __name__ == '__main__':
-    show_menu()
+# stack = []
+#
+# def push_it():
+#     data = input('数据: ').strip()
+#     if data:
+#         stack.append(data)
+#     else:
+#         print('输入内容为空.')
+#
+# def pop_it():
+#     if stack:
+#         print('从栈中,弹出:%s'% stack.pop())
+#     else:
+#         print('空栈')
+#
+# def view_it():
+#     print(stack)
+#
+# def show_menu():
+#     cmds = {'0': push_it,'1': pop_it,'2': view_it}
+#     prompt ="""(0)压栈
+# (1)出栈
+# (2)查询
+# (3)退出
+# 请选择(0/1/2/3): """
+#
+#     while True:
+#         choice = input(prompt).strip()
+#         if choice not in ['0','1','2','3']:
+#             print('input is invalid,Try again,')
+#             continue
+#
+#         if choice =='3':
+#             print('\nBye-bye')
+#             break
+#
+#         cmds[choice]()
+#
+# if __name__ == '__main__':
+#     show_menu()
 
 
 

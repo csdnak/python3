@@ -116,23 +116,23 @@ print(0b11)  #二进制数以0b开头
 print(bin(7))  #十进制转换成二进制(0b111)
 #***********character-string(字符串)
 #三引号就是三个连续的单引号或双引号
-words = "hello  #希望每个单词占一行,但是不能直接回车,写到下一行
-"""
-File "<stdin>", line 1
-  words = "hello
-               ^
-               
-SyntaxError: EOL while scanning string literal
-"""
-words = 'hello
-File "<stdin>", line 1
-words = 'hello
-             ^
-
-SyntaxError: EOL while scanning string literal
-words = "hello\nwelcome\ngreet"
-print(words)  #print将\n转义成回车
-#三引号可以保存用户的输入格式
-wds = """hello
-welcome
-greet"""
+# words = "hello  #希望每个单词占一行,但是不能直接回车,写到下一行
+# """
+# File "<stdin>", line 1
+#   words = "hello
+#                ^
+#
+# SyntaxError: EOL while scanning string literal
+# """
+# words = 'hello
+# File "<stdin>", line 1
+# words = 'hello
+#              ^
+#
+# SyntaxError: EOL while scanning string literal
+# words = "hello\nwelcome\ngreet"
+# print(words)  #print将\n转义成回车
+# #三引号可以保存用户的输入格式
+# wds = """hello
+# welcome
+# greet"""

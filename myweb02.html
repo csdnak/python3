@@ -1,0 +1,296 @@
+<!-- Python-myweb02
+ 学web的第二天
+ -->
+<!--CSS
+### css语法样式规范
+
+- 可以由多个样式规则组成
+- 每个样式规则有两个部分:选择器和样式声明
+  - 选择器：给谁设置样式
+  - 样式声明：设置成什么样的样式
+- 样式特征
+  - 继承性：子元素继承父元素的样式
+  - 层叠性：元素拥有的多个样式声明可以同时生效
+  - 优先级
+
+### 选择器
+
+- 通用选择器：\*，可以为所有元素设置通用样式
+- 元素选择器：html元素本身就是天然的选择器
+- 类选择器：class。将需要设置为相同样式的内容分到相同的组中，即class
+  - 元素可以属于多个类
+  - 多个类的样式有冲突，样式声明中，靠下的优先级高
+  - p.c1可以选择：\<p class="c1">。
+- id选择器：id是对某一元素唯一的识别
+- 群组选择器：用逗号将各选择器分隔，统一进行样式设置
+- 伪类选择器：一般用于为超链接设置访问前、鼠标悬停、访问后的样式
+  - a:link：​访问前的样式（访问前是指历史记录中没有）
+  - a:hover：鼠标悬停
+  - a:visited：访问后的样式（访问前是指历史记录中有）
+### 颜色
+
+- 采用RGB颜色
+  - Red
+  - Green
+  - Blue
+- 每种颜色都使用1个字节来表示
+- 可以使用rgb(红,绿,蓝10进制数)来表示，也可以使用#xxxxxx16进制数来表示
+- 每种颜色数值越小，表示该颜色越暗，值越大表示该颜色越亮
+
+### 框模型
+
+- 也叫盒子模型
+- html认为一切切框
+- 某一元素实际在页面中的大小，由元素、内边距、边框和外边距共同组成
+
+### 样式声明
+
+-->
+<!DOCTYPE html>
+<!-- html元素本身就是天然的选择器 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /* *号通用选择器,字体家族font-family */
+        * {
+            /*设置字体*/
+            font-family: Georgia;
+        }
+                                              /*设置导航框样式*/
+        .container {
+            /* 宽1000像素 */
+            width: 1002px;
+            /* 外边距四边都20(auto边框自动居中) */
+            margin: 20px auto;
+            /*background-color: gray;  !*为了看到效果所设置*!*/
+        }
+        /*设置列表样式*/
+        ul {
+            /*取消圆点*/
+            list-style-type: none;
+            /*取消外边距*/
+            margin: 0;
+            /*取消填充*/
+            padding: 0;
+        }
+        /*修改排列样式*/
+        li {
+            /*设置成行排列*/
+            /*display: inline;*/
+            /*水平排列*/
+            float: left;
+        }
+        /*配置行内元素样式*/
+        a {
+            /*设置宽为167像素*/
+            width: 167px;   /*上面1002宽度与这里167x6有关(如果不够则宽度不生效)*/
+            /*将a标签转为块元素,否则宽度不生效*/
+            display: block;
+            /*字体加粗*/
+            font-weight: bold;
+            /*取消下划线*/
+            text-decoration: none;
+            /*背景色*/
+            background-color: #BEBEBE;
+            /*行高*/
+            line-height: 30px;
+            /*2像素下边框*/
+            border-bottom: 2px #900B09 solid;
+            /*居中*/
+            text-align: center;
+            color: white;
+
+        }
+        /*设置鼠标悬停样式*/
+        a:hover {
+            /*鼠标悬停时的颜色*/
+            background-color: #900B09;
+        }
+
+
+        /* body选择器样式 */
+        body {
+            /*页面字体颜色深蓝*/
+            color: darkblue;
+            /*页面背景图片设置(默认自动水平、垂直重复)*/
+            background-image: url(https://cn.bing.com/th?id=OIP.h8e6SBtGR3TVYV9oIwPglwHaFj&pid=Api&rs=1);
+            /*以下为背景图属性设置(不设置就按默认的来)*/
+
+            /*不重复只显示一张原图片大小*/
+            background-repeat: no-repeat;
+            /*以下分别为横铺垫 和纵铺垫*/
+            /*background-repeat: repeat-x;*/
+            /*background-repeat: repeat-y;*/
+        }
+        /* h1为一个标签 */
+        h1 {
+            /*设置字体居中*/
+            text-align: center;
+            /*设置字体颜色,优先级高于子继承父body的属性所以蓝色字体变成绿色*/
+            color: green;
+        }
+        /* id在设置的时候加#号(不然会被当做标签) */
+        #id1 {
+            background-color: orangered;
+        }
+        /*.号是对class组进行属性设置*/
+        .web {
+            color:  purple;      /*紫色背景*/
+            font-weight: bold;   /*字体加粗*/
+            font-style: italic;  /*斜体子*/
+        }
+        .c1 {
+            font-weight: bold;
+            color: orange;
+        }
+        .c2 {
+            /*文本装饰类型:下划线*/
+            text-decoration: underline;
+            /*草绿色*/
+            color: olivedrab;
+        }
+        /*p.c1可以选择:<p class="c1">*/
+        p.c1 {
+            /*文本排序右对齐*/
+            text-align: right;
+        }
+        /*群组选择器,具有c1 c2 web属性的以及h2都会被影响*/
+        .c1,.c2,.web,h2 {
+            /*文本排序居中*/
+            text-align: center;
+        }
+        /*访问前设置(历史记录里没有)*/
+        #a2:link {
+            /*装饰为空(去掉了下划线)*/
+            text-decoration: none;
+        }
+        /*鼠标悬停时设置*/
+        #a2:hover {
+            /*字号是原来的1.2倍*/
+            font-size: 1.2rem;
+            /*选中时灰色*/
+            background-color: gray;
+        }
+        /*访问后设置(历史记录里有)*/
+        #a2:visited {
+            /*深灰色字体*/
+            color: darkgray;
+        }
+        .c3 {
+            font-size: 20px;
+            /*rgb(255,0,0)显示红色:(范围1~255越大越亮)
+            依次对应三原色(红绿蓝)
+            rgb(0,0,0)三原色谁都不发光(默认黑色)
+            rgb(255,255,255)都发光(为白色)*/
+            /*color: rgb(0,255,255);*/
+            color: #164008;  /*122b40表示以十六进制来选择颜色,
+            点击左边的小方块会出现颜色小圆盘*/
+        }
+        .c4 {
+            /*字体设置*/
+            font-family: "Microsoft YaHei UI",Monospace;
+            /*字体大小*/
+            font-size: 16px;
+            /*字体权重:加粗(normal为正常(就是不加粗),也可以value制定粗多少磅)*/
+            font-weight: bold;
+            /*字体风格:斜体*/
+            font-style: italic;
+            /*小型大写字母*/
+            font-variant: small-caps;
+        }
+        .c5 {
+            /*高度*/
+            height: 50px;         /*当高度与行高一样时会居中*/
+            /*行高*/
+            line-height: 50px;
+            /*黑色虚线边框*/
+            border: 1px dashed black;
+            /*加下划线*/
+            text-decoration: underline;
+            /*居中*/
+            text-align: center;
+        }
+        .box {
+            width: 300px; /*宽度*/
+            height: 200px; /*高度(以实际内容为准)*/
+            border: 1px black solid; /*边框:1个像素、黑色、实线*/
+            padding: 10px 20px 30px 40px; /*填充:顺时针(上右下左)*/
+            /*margin: 40px 30px 20px 10px; !*外边距*!*/
+            /*margin: 20px; !*设置四边均为20像素*!*/
+            margin-top: 20px; /*上边为20像素(上下左右皆可单独指定)*/
+            /*margin: 20px 40px; !*上下20,左右40(对称原则)*!*/
+        }
+    </style>
+</head>
+<body>
+<!-- 设置导航 -->
+<!-- div[class]>div[class]>ul>li(a)*6按tab即可 -->
+<div class="container">
+    <div class="nav">
+        <ul>
+            <li>
+                <a href="#">PYTHON</a>
+            </li>
+            <li>
+                <a href="#">SHELL</a>
+            </li>
+            <li>
+                <a href="#">JAVASCRIPT</a>
+            </li>
+            <li>
+                <a href="#">DATABASE</a>
+            </li>
+            <li>
+                <a href="#">HTNL</a>
+            </li>
+            <li>
+                <a href="#">CSS</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- id 在整个html里面是唯一表示(id不可重复) -->
+<h1 id="id1">csdn阿坤</h1>  <!-- 字体变蓝,子继承父元素 -->
+<h2>996 is ugly!</h2>
+<!-- 元素可以属于多个class,体现叠加效果 -->
+<p class="c1">c1 我是程序猿,我爱996</p>
+<p class="c2">c2 我是程序猿,我爱996</p>
+<!-- 如果多个类样式冲突,样式声明中谁在下面谁的优先级就高(和class中先后顺序没关系)(前提同类中) -->
+<p class="c1 c2">c1 c2 我是程序猿,我爱996</p>
+<!-- 注意:虽然浏览器能正常显示,但是他是错误的(如:当你想准确取出谋个元素就会起冲突) -->
+<p id="id1">我是程序猿,我爱996!</p>
+<p>我是程序猿,我爱996!</p>
+<p>我是程序猿,我爱996!</p>
+<div class="c1">div c1我是程序媛,我爱程序猿!</div>
+<div class="c3">div c3我是程序媛,我爱程序猿!</div>
+<hr color="orangered">
+<!-- 外层设置div里面套用div可实现缩放自动居中 -->
+<div class="container">
+    <div class="nav">
+        <!-- 必须写一个字符(不然背景色不出来) -->
+        csdnak
+    </div>
+</div>
+<hr color="darkgray">
+<div class="c5">div c5字如其人csdnak</div>
+<div class="c4">div c4字如其人csdnak</div>
+<div class="c6">字如其人csdnak</div>
+<!-- 盒子模型 -->
+<div class="box">div box我是程序媛,我爱程序猿!</div>
+<p>
+    <!-- class看一看成分组 -->
+    My name is CSDNak.
+    I want study <span class="web">web make</span>,hope you can help me.
+    Teach me <span class="web">web make</span>,thank's you vary much.
+</p>
+<hr color="purple">
+<p>
+    <!-- 默认:访问前是蓝色,访问后是紫色,有下划线 -->
+    <a id="a2" href="http://www.baidu.com">超链接</a>
+</p>
+<hr color="darkpink">
+
+</body>
+</html>

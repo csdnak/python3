@@ -1,0 +1,215 @@
+<!--
+## bootstrap
+
+- twitter公司推出的开源前端web框架
+- 可以简单的理解为它是一个大的样式表文件
+- 中文官方站：https://www.bootcss.com/
+- 准备环境，将static目录拷贝到工作目录
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 网页名字 -->
+    <title>bootcss1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap引用路径 -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+</head>
+<body>
+<!-- class:	规定元素的一个或多个类名（引用样式表中的类）。 -->
+<div class="container">
+    <p>
+        删格系统:
+    </p>
+    <!-- div[class]>div[class]>div[class]*4 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 bg-primary">
+                云计算 <br>csdnak
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 bg-danger">
+                云计算 <br>csdnak
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 bg-info">
+                云计算 <br>csdnak
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 bg-success">
+                云计算 <br>csdnak
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p>
+        图片处理:
+    </p>
+    <!-- img[class src ]*3 -->
+    <!-- 圆棱角 -->
+    <img src="static/imgs/html_css.jpeg" alt="没有图片才显示" class="img-rounded">
+    <!-- 圆形 -->
+    <img src="static/imgs/html_css.jpeg" alt="图片没有才显示" class="img-circle">
+    <!-- 可缩放 -->
+    <img src="static/imgs/html_css.jpeg" alt="无图显示此文字" class="img-thumbnail">
+    <hr>
+    <!-- form-inline让其变成一行 -->
+    <form action="" class="form-inline">
+        <div class="form-group">
+            <label>uname:</label>
+            <input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label>upass:</label>
+            <input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="提 交">
+        </div>
+    </form>
+    <hr>
+    <p>
+        form表单:
+    </p>
+    <!--form[action]>div[class](label>input[class type])*3-->
+    <form action="">
+        <div class="form-group">
+            <label>uname:</label>
+            <input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <label>upass:</label>
+            <input class="form-control" type="text">
+        </div>
+        <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="提 交">
+        </div>
+    </form>
+    <hr>
+    <p>
+        按钮:
+    </p>
+    <p>
+        <!-- 普通按钮 -->
+        <input type="submit" value="提交">
+    </p>
+    <p>
+        <!-- btn类型按钮 -->
+        <input class="btn" type="submit" value="提交">
+    </p>
+    <p>
+        <!-- 首要蓝btn按钮 -->
+        <input class="btn btn-primary" type="submit" value="提交">
+    </p>
+    <p>
+        <!-- 大的警告红btn按钮 -->
+        <input class="btn btn-danger btn-lg" type="submit" value="提交">
+    </p>
+    <p>
+        <!-- 小的警告黄btn按钮 -->
+        <input class="btn btn-warning btn-sm" type="submit" value="提交">
+    </p>
+    <p>
+        <!-- 超小的成功绿btn按钮 -->
+        <input class="btn btn-success btn-xs" type="submit" value="提交">
+    </p>
+    <hr>
+    <!--## 二、表格
+<table class="table table-bordered table-striped table-hover">
+    -->
+    <p>
+        表格:
+    </p>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr class="bg-primary">
+                <th class="text-center">人物</th>
+                <th class="text-center">武器</th>
+                <th class="text-center">等级</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>张飞</td>
+            <td>丈八蛇矛</td>
+            <td>88</td>
+        </tr>
+        <tr>
+            <td>贾宝玉</td>
+            <td>拳头</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>孙悟空</td>
+            <td>金箍棒</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td>哪吒</td>
+            <td>火尖枪</td>
+            <td>85</td>
+        </tr>
+    </table>
+    <hr>
+    <!--
+- 颜色
+  - danger: 危险红
+  - muted：柔和灰
+  - primary：首要蓝
+  - info：信息蓝
+  - success：成功绿
+  - warning：警告黄
+    -->
+    <!--- 对齐方式 -->
+    <!-- 三号标题 居中 字体首要蓝色 背景色警告红 -->
+    <p class="h3 text-center text-primary bg-danger">大内密探CSDNAK</p>
+    <!-- 四号标题 右对齐 字体柔和色 背景色警告黄 -->
+    <p class="h4 text-right text-muted bg-warning">大内密探CSDNAK</p>
+    <!-- 三号标题 字体信息色 背景色成功绿 -->
+    <p class="h3 text-left text-info bg-success ">大内密探CSDNAK</p>
+    <p>大内密探CSDNAK</p>
+    <p>大内密探CSDNAK</p>
+    <p>大内密探CSDNAK</p>
+    <p>大内密探CSDNAK</p>
+    <p>大内密探CSDNAK</p>
+    <hr color="darkblue">
+    <!--
+## 一、排版样式
+
+- Bootstrap 将全局 font-size 设置为 14px,line-height 行高设置为 1.428(即20px);p段落元素被设置等于 1/2 行高(即 10px);颜色被设置为#333333。
+- 标题元素大小
+  - h1: 36px
+  - h2: 30px
+  - h3: 24px
+  - h4: 18px
+  - h5: 14px
+  - h6: 12px
+- 为了统一，bootstrap还创建了h1到h6 class，样式与标题元素一致
+- 内联文本元素，各种加线条的文本、强调的文本
+    -->
+    <!-- 以下都是标签 -->
+    <!-- 突出显示部分文本 -->
+    <mark>我是程序员,我爱我家</mark>
+    <!-- 定义文档中已被删除的文本。 -->
+    <del>我是程序员,我爱我家</del>
+    <!-- 标记删除线文本 -->
+    <s>我是程序员,我爱我家</s>
+    <!-- 带有已删除部分和新插入部分的文本 -->
+    <ins>我是程序员,我爱我家</ins>
+    <!-- 使用 <u> 标签为文本添加下划线 -->
+    <u>我是程序员,我爱我家</u>
+    <!-- 标签呈现小号字体效果 -->
+    <small>我是程序员,我爱我家</small>
+    <!-- 把文本定义为语气更强的强调的内容 -->
+    <strong>我是程序员,我爱我家</strong>
+    <!-- 把文本定义为强调的内容 -->
+    <em>我是程序员,我爱我家</em>
+    <!-- 一号标题 -->
+    <h1>大内密探CSDNAK</h1>
+    <!-- 二号标题 -->
+    <h2>大内密探CSDNAK</h2>
+    <!-- 直接采用Bootstrap的h1标题样式 -->
+    <p class="h1">大内密探CSDNAK</p>
+    <!-- 段落元素由p标签定义 -->
+    <p>大内密探CSDNAK</p>
+    <p>大内密探CSDNAK</p>
+</div>
+</body>
+</html>

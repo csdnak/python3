@@ -555,35 +555,35 @@
 """
 
 """
-#创建压缩文件
-import  tarfile
-
-tar = tarfile.open('/tmp/mytest.tar.gz','w:gz')
-tar.add('/etc/hosts') #tar /etc/hosts
-tar.close()
-#解压,打开时不用指定压缩格式(程序会自动判断)
-tar = tarfile.open('/tmp/mytest.tar.gz')
-tar.extractall(path='/var/tmp') #解压到制定的目录　默认当前路径
-tar.close()
-
-#计算数据的哈希值
-import hashlib
-m = hashlib.md5(b'123456')
-m.hexdigest()
-'e10adc3949ba59abbe56e057f20f883e'
-
-with open('/etc/passwd', 'rb') as fobj:
-    data = fobj.read()
-
-m = hashlib.md5(data)
-m.hexdigest()
-'687950834a69d8e7ab0ba9e9111eeb1f'
-
-m = hashlib.md5()
-m.update(b'12')
-m.update(b'34')
-m.update(b'56')
-m.hexdigest()
-'e10adc3949ba59abbe56e057f20f883e'
+# #创建压缩文件
+# import  tarfile
+#
+# tar = tarfile.open('/tmp/mytest.tar.gz','w:gz')
+# tar.add('/etc/hosts') #tar /etc/hosts
+# tar.close()
+# #解压,打开时不用指定压缩格式(程序会自动判断)
+# tar = tarfile.open('/tmp/mytest.tar.gz')
+# tar.extractall(path='/var/tmp') #解压到制定的目录　默认当前路径
+# tar.close()
+#
+# #计算数据的哈希值
+# import hashlib
+# m = hashlib.md5(b'123456')
+# m.hexdigest()
+# 'e10adc3949ba59abbe56e057f20f883e'
+#
+# with open('/etc/passwd', 'rb') as fobj:
+#     data = fobj.read()
+#
+# m = hashlib.md5(data)
+# m.hexdigest()
+# '687950834a69d8e7ab0ba9e9111eeb1f'
+#
+# m = hashlib.md5()
+# m.update(b'12')
+# m.update(b'34')
+# m.update(b'56')
+# m.hexdigest()
+# 'e10adc3949ba59abbe56e057f20f883e'
 
 
