@@ -19,6 +19,19 @@
 <body>
 <!-- class:	规定元素的一个或多个类名（引用样式表中的类）。 -->
 <div class="container">
+    <!--
+## 六、栅格系统
+
+1. 实现页面布局
+2. 布局时，要求页面所有的元素位于container中
+3. container的直接子元素是row
+4. row中的元素是col-xx-yy
+5. 一个row最多支持12列。其中的col-xx-yy设置为占多少列
+   1. col-lg-3表示大屏幕尺寸下，它占3列
+   2. col-md-4表示中等屏幕尺寸下，它占4列
+   3. col-sm-2表示小屏幕尺寸下，它占6列
+6. 还可以设置自适应屏幕大小
+    -->
     <p>
         删格系统:
     </p>
@@ -44,7 +57,7 @@
         图片处理:
     </p>
     <!-- img[class src ]*3 -->
-    <!-- 圆棱角 -->
+    <!-- 圆角矩形 -->
     <img src="static/imgs/html_css.jpeg" alt="没有图片才显示" class="img-rounded">
     <!-- 圆形 -->
     <img src="static/imgs/html_css.jpeg" alt="图片没有才显示" class="img-circle">
@@ -66,6 +79,13 @@
         </div>
     </form>
     <hr>
+    <!--
+## 四、表单
+
+- 为了有很好的间距，应该把各个控件放到form-group中
+- 每个文本类型的控件，放到form-control中
+- 如果希望表单只占一行，只要设置form的class
+    -->
     <p>
         form表单:
     </p>
