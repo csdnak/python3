@@ -1,0 +1,35 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}Ansible Webadmin{% endblock %}
+{% block content %}
+{#  设置格式为行  四号标题  #}
+<div class="row h4">
+{# 设置为三行(一行四列),因为最多12个3x4=12  文本居中#}
+    <div class="col-sm-3 text-center">
+{#     设置超链接(#链接自己)可根据需要修改   #}
+        <a href="{% url 'webadmin' %}" target="_blank">
+{#      修改宽度150像素      #}
+            <img width="150px" src="{% static 'imgs/linux.jpg' %}"><br>
+            主机信息
+        </a>
+    </div>
+    <div class="col-sm-3 text-center">
+        <a href="{% url 'add_hosts' %}">
+            <img width="150px" src="{% static 'imgs/linux.jpg' %}"><br>
+            添加主机
+        </a>
+    </div>
+    <div class="col-sm-3 text-center">
+        <a href="#">
+            <img width="150px" src="{% static 'imgs/linux.jpg' %}"><br>
+            添加模块
+        </a>
+    </div>
+    <div class="col-sm-3 text-center">
+        <a href="#">
+            <img width="150px" src="{% static 'imgs/linux.jpg' %}"><br>
+            执行任务
+        </a>
+    </div>
+</div>
+{% endblock %}
